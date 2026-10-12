@@ -1,0 +1,65 @@
+[package]
+name = "effectcraft-ae-compat"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+rust-version = { workspace = true }
+repository = { workspace = true }
+description = "After Effects compatibility layer: AEP/AEPX import, JSX expressions, and plugin bridge"
+categories = ["graphics", "multimedia", "parser-implementations"]
+keywords = ["after-effects", "aep", "aepx", "jsx", "expressions", "motion-graphics"]
+
+[dependencies]
+# Internal crates
+effectcraft-time = { workspace = true }
+effectcraft-geom = { workspace = true }
+effectcraft-color = { workspace = true }
+effectcraft-raster = { workspace = true }
+effectcraft-path = { workspace = true }
+effectcraft-keyframe = { workspace = true }
+effectcraft-project = { workspace = true }
+effectcraft-text = { workspace = true }
+effectcraft-effects = { workspace = true }
+effectcraft-track = { workspace = true }
+effectcraft-model = { workspace = true }
+effectcraft-render = { workspace = true }
+effectcraft-expr = { workspace = true }
+effectcraft-interchange = { workspace = true }
+effectcraft-plugin = { workspace = true }
+
+# Foundation
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+log = { workspace = true }
+rayon = { workspace = true }
+web-time = { workspace = true }
+
+# AEP binary parsing
+byteorder = "1"
+bzip2 = "0.4"
+flate2 = "1"
+nom = "7"
+
+# AEPX XML parsing
+quick-xml = { version = "0.31", features = ["serialize"] }
+
+# JSX/JavaScript runtime (extends expr's Boa engine)
+boa_engine = { workspace = true }
+
+# Plugin bridge - OpenFX support
+openfx = { version = "0.3", features = ["host"] }
+
+# Image handling for thumbnails/previews
+image = { workspace = true }
+
+[features]
+default = ["aep", "aepx", "jsx", "plugin-bridge"]
+aep = []
+aepx = []
+jsx = []
+plugin-bridge = ["openfx"]
+
+[dev-dependencies]
+proptest = { workspace = true }
+tempfile = "3"
