@@ -27,6 +27,9 @@ jobs:
           # so vamos garantir que ele eh compilado
           echo "Crate ae-compat ja esta no repo"
 
+      - name: Update lockfile
+        run: cargo update -p effectcraft-ae-compat || cargo update
+
       - name: Build effectcraft-ae-compat
         run: |
           cargo build --release -p effectcraft-ae-compat --features aep,aepx,jsx --target aarch64-linux-android
