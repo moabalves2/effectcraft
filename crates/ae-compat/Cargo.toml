@@ -48,7 +48,7 @@ quick-xml = { version = "0.31", features = ["serialize"] }
 boa_engine = { workspace = true }
 
 # Plugin bridge - OpenFX support
-openfx = { version = "0.3", features = ["host"], optional = true }
+openfx = { version = "0.3", optional = true }
 
 # Image handling for thumbnails/previews
 image = { workspace = true }
