@@ -16,9 +16,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Rust toolchain
-        uses: dtolnay/rust-toolchain@v1
+        uses: dtolnay/rust-toolchain@master
         with:
-          target: aarch64-linux-android
+          toolchain: stable
+          targets: aarch64-linux-android
 
       - name: Add ae-compat crate
         run: |
